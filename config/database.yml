@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+
+development:
+  <<: *default
+  database: popcorn_development
+
+test:
+  <<: *default
+  database: popcorn_test
+
+production:
+  <<: *default
+  database: popcorn_production
+  username: popcorn
+  password: <%= ENV['POPCORN_DATABASE_PASSWORD'] %>
