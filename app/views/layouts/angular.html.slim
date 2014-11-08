@@ -10,6 +10,21 @@ html lang="en" ng-app="popcornApp"
   body
     .navbar.navbar-default
       .container
-        h1 Popcorn
-        div ng-view="" 
-    = javascript_include_tag "application" %
+        .navbar-header
+            a.navbar-brand href="#"
+              h1 
+                a href="/" Popcorn
+        .navbar-collapse.collapse
+          ul.navbar-nav.navbar-right.user-panel-container
+            li.active Click Here 
+    .container#primary
+      .row
+        #main ng-view=""
+
+    div ng-controller="MoviesController"
+
+    #f
+      .container
+        .row
+          p Use Angular with caution!
+    = javascript_include_tag "application"
