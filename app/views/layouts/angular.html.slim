@@ -1,0 +1,15 @@
+doctype html
+html lang="en" ng-app="popcornApp" 
+  head
+    meta charset="utf8"
+    meta content="IE=Edge, chrome=1" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    title = content_for?(:title) ? yield(:title) : "Popcorn"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", media: "all"
+  body
+    .navbar.navbar-default
+      .container
+        h1 Popcorn
+        div ng-view="" 
+    = javascript_include_tag "application" %
