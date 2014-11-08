@@ -11,17 +11,28 @@ html lang="en" ng-app="popcornApp"
     .navbar.navbar-default
       .container
         .navbar-header
-            a.navbar-brand href="#"
-              h1 
-                a href="/" Popcorn
+          a.navbar-brand href="#"
+            h1 
+              a href="/" Popcorn
         .navbar-collapse.collapse
           ul.navbar-nav.navbar-right.user-panel-container
             li.active Click Here 
-    .container#primary
-      .row
-        #main ng-view=""
 
     div ng-controller="MoviesController"
+      .container
+        .row
+          .col-md-4.col-sm-6.col-xs-12 ng-repeat="movie in movies"
+            .movie-container
+              a href="/movie/{{movie.youtubeId}}"
+                .thumbnail
+                  .poster.img-rounded
+                    img ng-src="{{movie.posterUrl}}" alt="{{movie.title}}"
+                .title
+                  | {{movie.title}}
+              a.favorite ng-click="removeFavorite(favorite)" ng-if="movie.isFavorite"
+                span.favorited-heart &#x2665; Favorite
+              a.favorite ng-click="addFavorite(favorite)" ng-if="!movie.isFavorite"
+                span.unfavorited-heart &#x2661; Add Favorite
 
     #f
       .container
